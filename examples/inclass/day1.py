@@ -106,18 +106,72 @@ if ans.isdigit():
     print(f"10 times of the number is {10 * int(ans)}")
 else:
     print("Invalid input!")
+    
+#%% List join, append and extend
+alist = [1, 2, 3]
+print(f"{alist = }")
 
+alist = alist + [4]  # joining two lists
+print(f"{alist = }")
 
+alist += [5]  # Similar to alist = alist + [5]
+print(f"{alist = }")
 
+alist.append(6)  # appending an item to the end of the list
+print(f"{alist = }")
 
+alist.extend([7, 8])  # extend the list with another list
+print(f"{alist = }")
 
+print(f"{len(alist) = }")
 
+#%% Sorting of list
+blist = [3, 1, 4, 2, 6, 5, 0]
+clist = sorted(blist)  # return a list sorted in ascending order
+dlist = sorted(blist, reverse=True)  # return a list sorted in descending order
+print(f"{blist = }, {clist = }, {dlist =}")
 
+elist = blist.sort()  # blist is sorted inplace without returning any list
+print(f"{blist = }, {elist = }")
 
+flist = [1, 2.5, 'abc', [3, 4], -5]
+glist = sorted(flist)  # cannot sort list with different data types
 
+#%% List methods
+alist = [1, 2, 3.4, 'abc', [5, 67.8], 'xyz', 1, 'a']
 
+print(f"{alist.count(1) = }")
+print(f"{alist.count('a') = }")
 
+print(f"{alist.index(1) = }")  # Only return the index of the first occirance
 
+alist.remove(1)  # Only remove the first occurance of 1
+print(f"{alist = }")
+
+alist.insert(3, 99)
+print(f"{alist = }")
+
+r = alist.pop(2)
+print(f"{r = }, {alist = }")
+
+#%% Indexing nested list
+alist = [1, 2, [3.45, 6, [78.9, 'a'], 0.1, 2], 34]
+
+# To access 'a' from the list
+print(f"{alist[2] = }, {alist[2][2] = }, {alist[2][2][1] = }")
+
+#%% Dictionary creation and modification
+adict = dict(a=1, b=2.5, c='abc')
+print(f"{adict['b'] = }")  # access the value of a given key
+
+adict['a'] = 34.5  # modify the value for a given key
+print(f"{adict = }")
+
+adict['d'] = [1, 2, 3]  # insert new key-value pair
+print(f"{adict = }")
+
+del adict['b']  # remove the key-value pair for a given key
+print(f"{adict = }")
 
 
 
