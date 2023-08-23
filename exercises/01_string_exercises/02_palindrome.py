@@ -8,3 +8,7 @@
 # True
 # Enter a string: Python
 # False
+
+word = input("Enter a word: ").lower()  # receive a string and convert to lowercase
+
+print(word == word[::-1])

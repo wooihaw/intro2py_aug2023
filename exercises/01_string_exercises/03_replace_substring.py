@@ -6,3 +6,9 @@
 # Enter substring to replace: world
 # Enter replacement substring: Python
 # Hello Python!
+
+s = input("Enter a string: ")
+s1 = input("Enter substring to replace: ")
+s2 = input("Enter replacement substring: ")
+
+print(s.replace(s1, s2))
