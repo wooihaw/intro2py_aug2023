@@ -194,9 +194,38 @@ if all((list1, list2, list3)):
 else:
     print("Some of the lists are empty")    
 
+#%% Use pickle to store dictionary to a file
+from pickle import dump
+data = {}
+ans = 'y'
+while ans.lower() in ('y', 'yes'):
+    name = input("Enter name: ") or "Unknown"
+    age = input("Enter age: ") or "0"
+    data[name] = age
+    ans = input("Do you want to enter another data?([y]/n) ") or 'y'
+    
+print(f"{data =}")
 
+with open("nameage.pkl", "wb") as f:
+    dump(data, f)
 
+#%% Use pickle to retrieve the dictionary from the file
+from pickle import load
 
+with open("nameage.pkl", "rb") as f:
+    mydata = load(f)
+
+print(f"{mydata =}")
+
+#%% Exception handling
+while True:
+    try:
+        num = int(input("Enter an integer: "))
+    except Exception as e:
+        print("Error: ", e)
+    else:
+        print(f"You have entered {num}")
+        break
 
 
 
