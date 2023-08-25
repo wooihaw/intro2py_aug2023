@@ -138,8 +138,82 @@ print(f"{s2 = }")
 s3 = list(map(lambda n: n*n, filter(lambda n: n % 2 == 0, range(1, 21))))
 print(f"{s3 = }")    
 
+#%% Iterator
 
+alist = list(range(10000000))
+print(alist.__sizeof__())
 
+myiter = iter(alist)
+print(myiter.__sizeof__())
+
+for i in myiter:
+    if i == 1000:
+        break
+    print(i)
+
+#%% OOP example
+class Rectangle:
+    desc = 'This is a rectangle'  # class attribute
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+        self.__secret = "Top secret"  # private attribute
+    def __str__(self):
+        return f"Rectangle with length of {self.length} and width of {self.width}"
+    def __repr__(self):
+        return f"Rectangle({self.length}, {self.width})"
+    def area(self):
+        return self.length * self.width
+    def perimeter(self):
+        return 2*self.length + 2*self.width
+    def __eq__(self, other):
+        return self.area() == other.area()
+    def __gt__(self, other):
+        return self.area() > other.area()
+    def reveal_secret(self):
+        return f"The secret is {self.__secret}"
+    
+rec1 = Rectangle(2, 3)
+rec2 = Rectangle(3, 4)
+print(rec1, rec2, sep="\n")
+
+alist = [rec1, rec2]
+print(alist)
+
+print(f"{rec1.area() = }, {rec2.area() = }")
+print(f"{rec1.perimeter() = }, {rec2.perimeter() = }")
+
+print(rec1 == rec2)
+print(rec1 > rec2)
+print(rec1 < rec2)
+
+rec3 = Rectangle(1, 2)
+alist.append(rec3)
+print(sorted(alist))
+
+print(rec1.length)
+print(rec1.reveal_secret())
+
+#%% Child class
+class Square(Rectangle):
+    def __init__(self, length):
+        super().__init__(length, length)
+    def __str__(self):
+        return f"Square with side of {self.length}"
+    def __repr__(self):
+        return f"Square({self.length})"
+
+sqr1 = Square(1)
+sqr2 = Square(2)
+sqr3 = Square(3)
+
+print(sqr1, sqr2, sqr3, sep=",")
+
+blist = [sqr3, sqr1, sqr2]
+print(f"{blist = }")
+print(sorted(blist))
+
+print(f"{sqr1.area() = }, {sqr1.perimeter() = }")
 
 
 
